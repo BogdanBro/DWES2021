@@ -1,0 +1,22 @@
+$tabla = "alumnos";
+$campos = array("nombre"=> "Juan", "apellidos"=> "Martínez");
+$sql = "INSERT INTO tabla (campos) values (valores)";
+
+function insert($tabla,$campos,&$sql){
+
+
+$valores=array_keys($campos);
+$campos.=implode(",",$valores);
+$valores.=":".implode(",:",$valores);
+
+$sql=str_replace("tabla",$tabla ,$sql );
+
+
+$sql=str_replace("campos",substr($campos,5,strlen($campos)) ,$sql );
+
+$sql=str_replace("valores",substr($valores,5,strlen($valores)) ,$sql );
+
+return $sql;
+
+}
+echo insert($tabla,$campos,$sql);

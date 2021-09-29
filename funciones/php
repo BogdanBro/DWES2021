@@ -1,0 +1,15 @@
+
+$tabla = "alumnos";
+$campos = array("nombre"=> "Juan", "apellidos"=> "Martínez");
+
+function insert($tabla,$campos){
+
+$insert = "INSERT INTO $tabla (";
+
+$valores=array_keys($campos);
+$insert.=implode(",",$valores).") values (:";
+$insert.=implode(",:",$valores).")";
+return $insert;
+
+}
+echo insert($tabla,$campos);

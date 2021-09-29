@@ -1,0 +1,19 @@
+$tabla = "alumnos";
+$campos = array("id" => 1, "nombre" => "Juan", "apellidos" => "Martínez");
+
+function update($tabla,$campos){
+
+$update = "UPDATE $tabla SET %s, %s WHERE %s";
+
+$keys=array_keys($campos);
+$where=array_shift($keys);
+
+$campo=$keys[0]."=:".$keys[0];
+$valor=$keys[1]."=:".$keys[1];
+
+$where=$where."=:".$where;
+
+return sprintf ($update,$campo,$valor,$where);
+
+}
+echo update($tabla,$campos);

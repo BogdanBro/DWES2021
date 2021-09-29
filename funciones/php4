@@ -1,0 +1,31 @@
+$suma = function ($valor1,$valor2) {
+
+    echo ($valor1+$valor2);
+
+};
+
+$resta = function ($valor1,$valor2) {
+
+    echo ($valor1-$valor2);
+
+};
+$division = function ($valor1,$valor2) {
+
+    echo ($valor1/$valor2);
+
+};
+
+$multiplicacion = function ($valor1,$valor2) {
+
+    echo ($valor1*$valor2);
+
+};
+
+function realizarOperacion ($operacion,$valor1,$valor2,$valor3) {
+
+    echo ($valor1.$valor2.$valor3."=");
+    $operacion($valor1,$valor3);
+
+};
+
+realizarOperacion($multiplicacion,5,"+",6);
